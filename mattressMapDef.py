@@ -118,7 +118,7 @@ class MattressHeatMap:
             if val < 0:
                 print(val)
 
-            Values[x][i] = val
+            self.Values[x][i] = val
             x += 1
         xbyte = self.ser.read().decode('utf-8')
         if xbyte != "\n":
@@ -317,8 +317,8 @@ class MattressHeatMap:
                 # print(json.dumps(bValues))
                 pm = json.dumps(bValues)
                 self.StopReceiving()
-                RPosture = self.posture(Values)
-                print(Values)
+                RPosture = self.posture(self.Values)
+                print(self.Values)
                 print('The posture is:')
                 print(RPosture)
                 if RPosture != 0:
@@ -326,13 +326,13 @@ class MattressHeatMap:
                 else:
                     RPresence = 0
                 print('The maximum pressure is:')
-                maxp = self.MaximumPressure(Values)
+                maxp = self.MaximumPressure(self.Values)
                 print(maxp)
                 print('The center of pressure in X is:')
-                CPX = self.CenterofPressureX(Values)
+                CPX = self.CenterofPressureX(self.Values)
                 print(CPX)
                 print('The center of pressure in Y is:')
-                CPY = self.CenterofPressureY(Values)
+                CPY = self.CenterofPressureY(self.Values)
                 print(CPY)
 
                 self.UploadPressureMap(pm, RPosture, RPresence, maxp, CPX, CPY)
