@@ -14,7 +14,7 @@ class MattressHeatMap:
 
     def __init__(self):
         self.serverURLNew = "https://iot.meidisheet.com/deviceLog"
-        self.apiKey = "k34rJRlvoJ2g31TzUeGh1alLdiQsHcMG4CFGaYkM"
+        self.apiKey = "4dDDrkcqdv785ZdroOPD33c9XiJUsZ1taPqcEgAl"
         self.cpuserial = "0000000000000000"
         # GPIO.setwarnings(False)
         # GPIO.setmode(GPIO.BCM)
