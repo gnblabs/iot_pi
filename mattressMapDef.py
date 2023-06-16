@@ -20,9 +20,9 @@ class MattressHeatMap:
         # GPIO.setmode(GPIO.BCM)
         self.LEDA = 24
         # GPIO.setup(self.LEDA, GPIO.OUT)    
-        COLS = 24
-        ROWS = 48
-        self.Values = np.zeros((ROWS, COLS))
+        self.COLS = 24
+        self.ROWS = 48
+        self.Values = np.zeros((self.ROWS, self.COLS))
         self.RPosture = 0
         self.RPresence = 0
         self.CPX = 1
@@ -107,7 +107,7 @@ class MattressHeatMap:
 
     def ReceiveRow(self, i):
         x = 0
-        while x < ROWS:  # ROWS=48
+        while x < self.ROWS:  # ROWS=48
             HighByte = self.ser.read()
             LowByte = self.ser.read()
             high = int.from_bytes(HighByte, 'big')
@@ -126,14 +126,14 @@ class MattressHeatMap:
     
     def ReceiveMap(self):
         y = 0
-        while y < COLS:  # COLS=24
+        while y < self.COLS:  # COLS=24
             xbyte = self.ser.read().decode('utf-8')
             if xbyte == 'M':
                 # print(xbyte)
                 xbyte = self.ser.read()
                 xint = int.from_bytes(xbyte, 'big')
                 # print(xint)
-                if xint == ROWS:  # ROWS=48
+                if xint == self.ROWS:  # ROWS=48
                     xbyte = self.ser.read()
                     xint = int.from_bytes(xbyte, 'big')
                     # print(xint)
