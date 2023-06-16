@@ -5,5 +5,5 @@ while true; do
   curl -X GET http://localhost:3000/bedMap
 
   # Sleep for 1 second before making the next request
-  sleep 5
+  sleep 4
 done
