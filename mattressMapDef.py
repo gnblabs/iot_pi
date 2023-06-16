@@ -102,6 +102,7 @@ class MattressHeatMap:
                     'x-api-key': self.apiKey
                 }
             )
+            print('data posted successfully!!!')
         except requests.exceptions.ConnectionError as e:
             print('Connection refuse error in request at new server', e)
         return data
