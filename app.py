@@ -14,7 +14,7 @@ def bedMap():
     bedSheet.listenForInternet()
     cpuSNo = bedSheet.getserial()
     print('Serial No #'+cpuSNo)
-    # bedSheet.prepareBed()
+    bedSheet.prepareBed()
     return "Bed map imported"
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ import os
 import requests
 import json
 import urllib.request as urllib2
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 
 class MattressHeatMap:
