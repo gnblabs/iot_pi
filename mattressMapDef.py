@@ -295,7 +295,8 @@ class MattressHeatMap:
         return CenterY
 
     def listenForBedData(self):
-        while self.ser.in_waiting > 0:
+        isSentData = False
+        while self.ser.in_waiting > 0 and isSentData == False:
             xbyte = self.ser.read().decode('utf-8', errors='ignore')
 
             if xbyte == 'H':
@@ -341,5 +342,6 @@ class MattressHeatMap:
                 # sleepForSeconds(3)
                 print('ended at', datetime.now().strftime('%H:%M:%S'))
                 # StartReceiving()
+                isSentData=True
         return True
             
