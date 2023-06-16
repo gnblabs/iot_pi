@@ -88,7 +88,7 @@ class MattressHeatMap:
                 'POST',
                 self.serverURLNew,
                 data=json.dumps({
-                    'hardwareId': self.cpuSerial,
+                    'hardwareId': self.cpuserial,
                     'PressureMap': PressureMap,
                     'RecognizedPosture': RecognizedPosture,
                     'RecognizedPresence': RecognizedPresence,
