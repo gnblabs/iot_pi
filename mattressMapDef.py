@@ -83,11 +83,7 @@ class MattressHeatMap:
 
     def UploadPressureMap(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
         print("Posting to new Server ",self.serverURLNew)
-        try:
-            responseUloadPM = requests.request(
-                'POST',
-                self.serverURLNew,
-                data=json.dumps({
+        data = json.dumps({
                     'hardwareId': self.cpuserial,
                     'PressureMap': PressureMap,
                     'RecognizedPosture': RecognizedPosture,
@@ -95,7 +91,12 @@ class MattressHeatMap:
                     'MaxPressure': MaxPressure,
                     'PressureCenterX': PressureCenterX,
                     'PressureCenterY': PressureCenterY
-                }),
+                })
+        try:
+            responseUloadPM = requests.request(
+                'POST',
+                self.serverURLNew,
+                data= data,
                 headers={
                     'content-type': 'application/json',
                     'x-api-key': self.apiKey
