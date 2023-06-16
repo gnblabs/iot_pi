@@ -296,6 +296,7 @@ class MattressHeatMap:
 
     def listenForBedData(self):
         isSentData = False
+        print('listening for data....')
         time.sleep(1)
         while self.ser.in_waiting > 0 and isSentData == False:
             xbyte = self.ser.read().decode('utf-8', errors='ignore')
@@ -317,6 +318,7 @@ class MattressHeatMap:
 
             if ReceivedProperly:
                 # print(Values)
+                print('Got some data, processing to post....')
                 bValues = self.Values.tolist()
                 # print(json.dumps(bValues))
                 pm = json.dumps(bValues)
