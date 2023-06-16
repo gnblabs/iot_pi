@@ -98,7 +98,7 @@ class MattressHeatMap:
                 }),
                 headers={
                     'content-type': 'application/json',
-                    'x-api-key': apiKey
+                    'x-api-key': self.apiKey
                 }
             )
         except requests.exceptions.ConnectionError as e:
