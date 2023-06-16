@@ -32,7 +32,7 @@ class MattressHeatMap:
         print('sheet initialized')
 
     def prepareBed(self):
-        ser = serial.Serial(
+        self.ser = serial.Serial(
         port='/dev/ttyAMA0',
         baudrate=115200,
         timeout=3.0)
