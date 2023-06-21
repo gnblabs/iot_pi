@@ -104,7 +104,9 @@ class MattressHeatMap:
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
         except requests.exceptions.ConnectionError as e:
-            print('Connection refuse error in request at new server', e)
+            print('Connection refuse error in request at new server' + e)
+        except requests.exceptions.RequestException as ex:
+            print('some other error' + ex)
         return data
 
     def ReceiveRow(self, i):

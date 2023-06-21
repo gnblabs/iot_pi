@@ -17,6 +17,7 @@ def bedMap():
     bedSheet.prepareBed()
     print('Bed prepared to get data')
     bdata = bedSheet.listenForBedData()
+    print('process done, ready for next request')
     return "Bed map imported"
 
 if __name__ == '__main__':
