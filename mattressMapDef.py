@@ -88,6 +88,7 @@ class MattressHeatMap:
 
     def UploadToDemo(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
         demoUrl = "https://iotdemo.meidisheet.com/deviceLog"
+        demoKey = "VheBEyJ9d7aQ4pf0Q6CWZ6eqewGfuLrr77rBiIFN"
         print("Posting to demo ",demoUrl)
         data = json.dumps({
                     'hardwareId': self.cpuserial,
@@ -105,7 +106,7 @@ class MattressHeatMap:
                 data= data,
                 headers={
                     'content-type': 'application/json',
-                    'x-api-key': self.apiKey
+                    'x-api-key': demoKey
                 }
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
@@ -117,6 +118,7 @@ class MattressHeatMap:
 
     def UploadToBeta(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
         betaUrl = "https://iotbeta.meidisheet.com/deviceLog"
+        betaKey = "4dDDrkcqdv785ZdroOPD33c9XiJUsZ1taPqcEgAl"
         print("Posting to beta ",betaUrl)
         data = json.dumps({
                     'hardwareId': self.cpuserial,
@@ -134,7 +136,7 @@ class MattressHeatMap:
                 data= data,
                 headers={
                     'content-type': 'application/json',
-                    'x-api-key': self.apiKey
+                    'x-api-key': betaKey
                 }
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
