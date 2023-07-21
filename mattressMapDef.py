@@ -82,7 +82,13 @@ class MattressHeatMap:
         return self.cpuserial
 
     def UploadPressureMap(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
-        print("Posting to new Server ",self.serverURLNew)
+        self.UploadToBeta(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
+        self.UploadToDemo(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
+
+
+    def UploadToDemo(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
+        demoUrl = "https://iotdemo.meidisheet.com/deviceLog"
+        print("Posting to demo ",demoUrl)
         data = json.dumps({
                     'hardwareId': self.cpuserial,
                     'PressureMap': PressureMap,
@@ -95,7 +101,36 @@ class MattressHeatMap:
         try:
             responseUloadPM = requests.request(
                 'POST',
-                self.serverURLNew,
+                demoUrl,
+                data= data,
+                headers={
+                    'content-type': 'application/json',
+                    'x-api-key': self.apiKey
+                }
+            )
+            print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
+        except requests.exceptions.ConnectionError as e:
+            print('Connection refuse error in request at new server' + e)
+        except requests.exceptions.RequestException as ex:
+            print('some other error' + ex)
+        return data
+
+    def UploadToBeta(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
+        betaUrl = "https://iotbeta.meidisheet.com/deviceLog"
+        print("Posting to beta ",betaUrl)
+        data = json.dumps({
+                    'hardwareId': self.cpuserial,
+                    'PressureMap': PressureMap,
+                    'RecognizedPosture': RecognizedPosture,
+                    'RecognizedPresence': RecognizedPresence,
+                    'MaxPressure': MaxPressure,
+                    'PressureCenterX': PressureCenterX,
+                    'PressureCenterY': PressureCenterY
+                })
+        try:
+            responseUloadPM = requests.request(
+                'POST',
+                betaUrl,
                 data= data,
                 headers={
                     'content-type': 'application/json',
