@@ -1,10 +1,10 @@
 [Unit]
-Description=Meidesheet bed status
+Description=Meidesheet bed polling for data
 After=iot_pi.service
 
 [Service]
 WorkingDirectory=/home/pi/Scripts/gnb/iot_pi
-ExecStart=/bin/sh /home/pi/Scripts/gnb/iot_pi/devStatus.sh
+ExecStart=/bin/sh /home/pi/Scripts/gnb/iot_pi/poll.sh
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
