@@ -1,5 +1,5 @@
 [Unit]
-Description=Meidesheet bed capturing
+Description=Meidesheet bed status
 After=network-online.target
 
 [Service]
