@@ -13,7 +13,8 @@ import RPi.GPIO as GPIO
 class MattressHeatMap:
 
     def __init__(self):
-        self.serverURLNew = "https://iot.meidisheet.com/deviceLog"
+        # self.serverURLNew = "https://iot.meidisheet.com/deviceLog"
+        self.serverURLNew = "http://54.82.103.8:3000/iot"
         self.apiKey = "4dDDrkcqdv785ZdroOPD33c9XiJUsZ1taPqcEgAl"
         self.cpuserial = "0000000000000000"
         # GPIO.setwarnings(False)
@@ -83,12 +84,12 @@ class MattressHeatMap:
 
     def UploadPressureMap(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
         self.UploadToBeta(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
-        self.UploadToDemo(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
+        # self.UploadToDemo(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
 
 
     def UploadToDemo(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
-        demoUrl = "https://iotdemo.meidisheet.com/deviceLog"
-        demoKey = "VheBEyJ9d7aQ4pf0Q6CWZ6eqewGfuLrr77rBiIFN"
+        demoUrl = "http://54.82.103.8:3000/iot"
+        # demoKey = "VheBEyJ9d7aQ4pf0Q6CWZ6eqewGfuLrr77rBiIFN"
         print("Posting to demo ",demoUrl)
         data = json.dumps({
                     'hardwareId': self.cpuserial,
@@ -106,7 +107,7 @@ class MattressHeatMap:
                 data= data,
                 headers={
                     'content-type': 'application/json',
-                    'x-api-key': demoKey
+                    # 'x-api-key': demoKey
                 }
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
@@ -135,8 +136,7 @@ class MattressHeatMap:
                 betaUrl,
                 data= data,
                 headers={
-                    'content-type': 'application/json',
-                    'x-api-key': betaKey
+                    'content-type': 'application/json'
                 }
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
