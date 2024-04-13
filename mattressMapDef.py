@@ -13,7 +13,8 @@ import RPi.GPIO as GPIO
 class MattressHeatMap:
 
     def __init__(self):
-        self.serverURLNew = "https://iot.meidisheet.com/deviceLog"
+        # self.serverURLNew = "https://iot.meidisheet.com/deviceLog"
+        self.serverURLNew = "http://54.82.103.8:3000/iot"
         self.apiKey = "4dDDrkcqdv785ZdroOPD33c9XiJUsZ1taPqcEgAl"
         self.cpuserial = "0000000000000000"
         # GPIO.setwarnings(False)
@@ -98,8 +99,7 @@ class MattressHeatMap:
                 self.serverURLNew,
                 data= data,
                 headers={
-                    'content-type': 'application/json',
-                    'x-api-key': self.apiKey
+                    'content-type': 'application/json'
                 }
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
