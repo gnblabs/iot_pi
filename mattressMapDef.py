@@ -83,8 +83,8 @@ class MattressHeatMap:
         return self.cpuserial
 
     def UploadPressureMap(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
-        self.UploadToBeta(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
-        # self.UploadToDemo(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
+        # self.UploadToBeta(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
+        self.UploadToDemo(PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY)
 
 
     def UploadToDemo(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
