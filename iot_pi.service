@@ -3,7 +3,7 @@ Description=Meidesheet bed capturing
 After=network-online.target
 
 [Service]
-ExecStart=/bin/bash/python3.5 /home/pi/Scripts/gnb/iot_pi/app.py
+ExecStart=/usr/bin/python3.5 /home/pi/Scripts/gnb/iot_pi/app.py
 WorkingDirectory=/home/pi/Scripts/iot_pi/
 StandardOutput=inherit
 StandardError=inherit
