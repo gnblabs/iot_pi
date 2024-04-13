@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 WorkingDirectory=/home/pi/Scripts/gnb/iot_pi
-ExecStart=/usr/bash /home/pi/Scripts/gnb/iot_pi/devStatus.sh
+ExecStart=/bin/sh /home/pi/Scripts/gnb/iot_pi/devStatus.sh
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
