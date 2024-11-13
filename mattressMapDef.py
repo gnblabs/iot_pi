@@ -136,7 +136,8 @@ class MattressHeatMap:
                 betaUrl,
                 data= data,
                 headers={
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    'x-api-key': betaKey
                 }
             )
             print("data posted successfully!!! with status code {}".format(responseUloadPM.status_code))
