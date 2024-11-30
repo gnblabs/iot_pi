@@ -88,7 +88,7 @@ class MattressHeatMap:
 
 
     def UploadToDemo(self, PressureMap, RecognizedPosture, RecognizedPresence, MaxPressure, PressureCenterX, PressureCenterY):
-        demoUrl = "http://54.82.103.8:3000/iot"
+        demoUrl = "http://3.211.84.187:3000/iot"
         # demoKey = "VheBEyJ9d7aQ4pf0Q6CWZ6eqewGfuLrr77rBiIFN"
         print("Posting to demo ",demoUrl)
         data = json.dumps({
